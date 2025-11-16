@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>你是否喜欢鹤凌？</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+            font-family: 微软雅黑;
+        }
+        .option-btn {
+            padding: 10px 20px;
+            margin: 0 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .confirm-text {
+            color: #ff5555;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 问题页面 -->
+    <div id="questionPage">
+        <h1>你是否喜欢鹤凌？</h1>
+        <button class="option-btn" onclick="chooseDislike()">不喜欢</button>
+        <button class="option-btn" onclick="chooseLike()">喜欢</button>
+    </div>
+
+    <!-- 不喜欢的确认页面 -->
+    <div id="confirmPage" style="display: none;">
+        <p class="confirm-text">你确定吗？</p>
+        <button class="option-btn" onclick="backToQuestion()">不确定</button>
+    </div>
+
+    <script>
+        // 选择“不喜欢”的逻辑
+        function chooseDislike() {
+            document.getElementById("questionPage").style.display = "none";
+            document.getElementById("confirmPage").style.display = "block";
+            
+            // 2秒后自动回到问题页面（可选保留）
+            setTimeout(() => {
+                backToQuestion();
+            }, 3000);
+        }
+
+        // 点击“不确定”返回问题页面
+        function backToQuestion() {
+            document.getElementById("confirmPage").style.display = "none";
+            document.getElementById("questionPage").style.display = "block";
+        }
+
+        // 选择“喜欢”的逻辑
+        function chooseLike() {
+            alert("我也喜欢你~");
+        }
+    </script>
+</body>
+</html>
